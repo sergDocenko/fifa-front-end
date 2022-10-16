@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
 import clsx from "clsx";
+import PropTypes from "prop-types";
 import "./Step.css";
 
 const Step = ({ title, description, number, active }) => {

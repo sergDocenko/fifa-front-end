@@ -1,16 +1,20 @@
-.button,
-.button__disabled {
-  padding: 10px 15px;
+.button:disabled {
+  cursor: default;
+}
+
+.button {
+  cursor: pointer;
+  padding: 10px 20px;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.37);
   margin: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.312);
 }
 
-.button {
-  cursor: pointer;
+.button:active {
+  background-color: rgba(0, 0, 0, 0.237);
 }
 
-.button:active {
+.button:hover {
   background-color: rgba(0, 0, 0, 0.137);
 }

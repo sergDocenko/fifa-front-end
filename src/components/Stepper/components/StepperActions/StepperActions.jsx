@@ -1,5 +1,5 @@
-import Button from "../../../Button/Button";
 import PropTypes from "prop-types";
+import Button from "../../../Button/Button";
 import "./stepper-actions.css";
 
 const StepperActions = (props) => {

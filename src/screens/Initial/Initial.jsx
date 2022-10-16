@@ -1,5 +1,4 @@
 import React from "react";
-// import { StepperProvider } from "../../components/Stepper/providers/StepperProvider";
 import Stepper from "../../components/Stepper/Stepper";
 import { Screen1, Screen2, Screen3, Screen4 } from "./components/";
 

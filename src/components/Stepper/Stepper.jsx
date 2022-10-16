@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
+import StepperActions from "./components/StepperActions/StepperActions";
 import StepperNavigation from "./components/StepperNavigation";
 import StepperContent from "./components/StepperСontent/StepperContent";
-import StepperActions from "./components/StepperActions/StepperActions";
+import { useStepper } from "./hooks";
 import { StepperProvider } from "./providers/StepperProvider";
-import { useStepper } from "./hooks/";
 import "./stepper.css";
 
 const Stepper = ({ steps }) => {

@@ -1,6 +1,5 @@
-import React from "react";
 import PropTypes from "prop-types";
-// import { useStepper } from "../hooks/";
+import React from "react";
 
 export const StepperContext = React.createContext();
 
