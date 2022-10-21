@@ -4,16 +4,18 @@ import { useState } from "react";
 import "./inputText.css";
 
 const InputText = (props) => {
-  const { defaultValue, getValue, className } = props;
+  const { defaultValue, getValue, className, onBlurHandle } = props;
   const [value, setValue] = useState(defaultValue);
   const style = clsx("input__text", className);
 
   function handleChange(event) {
     setValue(event.target.value);
+    if (getValue) getValue(event.target.value);
   }
 
   function handleBlur() {
-    getValue(value);
+    if (onBlurHandle) onBlurHandle(value);
+    else return null;
   }
 
   return (

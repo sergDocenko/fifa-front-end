@@ -1,24 +1,33 @@
-import { useStepperContext } from "../../../components/Stepper/hooks";
-import InputText from "../../../components/InputText/InputText";
-import { useState } from "react";
 import Button from "../../../components/Button/Button";
+import { useStepperContext } from "../../../components/Stepper/hooks";
+import "./addPlayers.css";
+import Player from "./components/Player/Player";
+import usePlayers from "./hooks/usePlayers";
 
-const Screen1 = () => {
+const AddPlayers = () => {
   const { updateTempStepData, activeStepData } = useStepperContext();
-  const [player, setPlayer] = useState(activeStepData);
+  const { players, updatePlayerData, addPlayer, removePlayer } =
+    usePlayers(activeStepData);
 
-  updateTempStepData(player);
+  updateTempStepData(players);
 
-  function updateStepData(data) {
-    setPlayer(data);
-  }
   return (
-    <div className={""}>
-      <InputText defaultValue={activeStepData} getValue={updateStepData} />
+    <div className={"add-players"}>
+      {players.map((player) => (
+        <Player
+          key={player.id}
+          disabledRemoveButton={players.length <= 2}
+          removePlayer={removePlayer}
+          updatePlayerData={updatePlayerData}
+          playerDefault={player}
+        />
+      ))}
 
-      <Button> </Button>
+      <Button disabled={players.length >= 10} onClick={addPlayer}>
+        Add one more Player
+      </Button>
     </div>
   );
 };
 
-export default Screen1;
+export default AddPlayers;

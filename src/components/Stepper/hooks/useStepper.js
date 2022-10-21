@@ -48,7 +48,7 @@ function useStepper(steps) {
     content: steps[activeStepIndex].content,
     activeStepData: screensData[activeStepIndex]
       ? screensData[activeStepIndex]
-      : "",
+      : null,
     prevDisabled: activeStepIndex === 0,
     finishStep: activeStepIndex === steps.length - 1,
   };
