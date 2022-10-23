@@ -1,26 +1,29 @@
 import clsx from "clsx";
 import Proptypes from "prop-types";
-import { useState } from "react";
-import "./inputText.css";
+import React, { useEffect, useState } from "react";
+import "./input-text.css";
 
 const InputText = (props) => {
-  const { defaultValue, getValue, className, onBlurHandle } = props;
-  const [value, setValue] = useState(defaultValue);
-  const style = clsx("input__text", className);
+  const { value: valueProp, onChange, className, onBlur } = props;
+  const [value, setValue] = useState(valueProp);
+  const styles = clsx("input-text", className);
+
+  useEffect(() => {
+    if (value !== valueProp) setValue(valueProp);
+  }, [valueProp]);
 
   function handleChange(event) {
     setValue(event.target.value);
-    if (getValue) getValue(event.target.value);
+    if (onChange) onChange(event.target.value, event);
   }
 
   function handleBlur() {
-    if (onBlurHandle) onBlurHandle(value);
-    else return null;
+    if (onBlur) onBlur(value);
   }
 
   return (
     <input
-      className={style}
+      className={styles}
       type="text"
       value={value}
       onChange={handleChange}
@@ -30,13 +33,14 @@ const InputText = (props) => {
 };
 
 InputText.defaultProps = {
-  defaultValue: "",
+  value: "",
 };
 
 InputText.propTypes = {
-  defaultValue: Proptypes.string,
-  getValue: Proptypes.func,
+  value: Proptypes.string,
+  onChange: Proptypes.func,
+  onBlur: Proptypes.func,
   className: Proptypes.string,
 };
 
-export default InputText;
+export default React.memo(InputText);

@@ -6,11 +6,13 @@ function usePlayers(playersData) {
     : [getPlayerDefault(), getPlayerDefault()];
   const [players, setPlayers] = useState(playersInitial);
 
-  function updatePlayerData(player) {
+  function updatePlayerData(playerProps) {
     const tempPlayers = [...players];
-    const index = getIndex(players, player.id);
-    tempPlayers[index] = player;
-    setPlayers(tempPlayers);
+    const index = getIndexFromId(tempPlayers, playerProps.id);
+    if (tempPlayers[index].name !== playerProps.name) {
+      tempPlayers[index] = playerProps;
+      setPlayers(tempPlayers);
+    }
   }
 
   function addPlayer() {
@@ -38,10 +40,10 @@ const createId = (function (initId = 0) {
   };
 })();
 
-function getIndex(array, id) {
+const getPlayerDefault = () => {
+  return { name: "", id: createId() };
+};
+
+function getIndexFromId(array, id) {
   return array.findIndex((player) => player.id === id);
 }
-
-const getPlayerDefault = () => {
-  return { name: "", id: createId(), valid: false };
-};

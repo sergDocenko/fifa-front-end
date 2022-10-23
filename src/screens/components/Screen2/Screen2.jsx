@@ -1,19 +1,18 @@
-import { useState } from "react";
-import { useStepperContext } from "../../../components/Stepper/hooks";
+import { useState, useEffect } from "react";
+import InputText from "../../../components/InputText/InputText";
 
 const Screen2 = () => {
-  const { updateTempStepData, activeStepData } = useStepperContext();
-  const [state, setState] = useState(activeStepData);
+  const [value, setValue] = useState("");
 
-  updateTempStepData(state);
-
-  function handleChange(event) {
-    setState(event.target.value);
-  }
+  useEffect(() => {
+    setInterval(() => {
+      setValue("Hi");
+    }, 4000);
+  }, []);
 
   return (
     <div>
-      <input value={state} type="text" onChange={handleChange} />
+      <InputText defaultValue={value} />
       <p>Step2</p>
     </div>
   );

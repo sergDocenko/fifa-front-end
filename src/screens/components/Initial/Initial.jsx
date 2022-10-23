@@ -1,11 +1,6 @@
 import React from "react";
-import Stepper from "../../components/Stepper/Stepper";
-import {
-  AddPlayers,
-  Screen2,
-  Screen3,
-  Screen4,
-} from "../../screens/components";
+import Stepper from "../../../components/Stepper/Stepper";
+import { AddPlayers, Screen2, Screen3, Screen4 } from "../../components";
 
 const steps = [
   {

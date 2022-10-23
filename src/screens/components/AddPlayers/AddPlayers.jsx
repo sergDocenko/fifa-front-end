@@ -17,7 +17,7 @@ const AddPlayers = () => {
         <Player
           key={player.id}
           disabledRemoveButton={players.length <= 2}
-          removePlayer={removePlayer}
+          removePlayer={removePlayer.bind(null, player.id)}
           updatePlayerData={updatePlayerData}
           playerDefault={player}
         />

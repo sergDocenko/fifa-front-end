@@ -12,17 +12,8 @@ const Player = (props) => {
   } = props;
   const player = useRef(playerDefault);
 
-  function updatePlayerValid() {
-    player.current.valid = player.current.name.length > 5 ? true : false;
-  }
-
   function updatePlayerName(playerName) {
     player.current.name = playerName;
-    updatePlayerValid();
-  }
-
-  function handleRemove() {
-    removePlayer(playerDefault.id);
   }
 
   function handleOnBlur() {
@@ -32,13 +23,12 @@ const Player = (props) => {
   return (
     <div className="player" onBlur={handleOnBlur}>
       <InputText
-        defaultValue={playerDefault.name}
-        getValue={updatePlayerName}
+        value={playerDefault.name}
+        onChange={updatePlayerName}
         className={"player__input-text"}
       />
-      <Button disabled={disabledRemoveButton} onClick={handleRemove}>
-        {" "}
-        Remove{" "}
+      <Button disabled={disabledRemoveButton} onClick={removePlayer}>
+        Remove
       </Button>
     </div>
   );

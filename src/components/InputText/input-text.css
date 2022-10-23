@@ -1,4 +1,4 @@
-.input__text {
+.input-text {
   min-width: 250px;
   padding: 5px 10px;
   font-size: 1rem;
@@ -7,6 +7,6 @@
   background-color: rgb(248, 248, 248);
 }
 
-.input__text:focus{
+.input-text:focus {
   background-color: rgb(235, 235, 235);
- }
+}
