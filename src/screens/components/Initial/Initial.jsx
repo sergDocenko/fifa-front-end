@@ -1,23 +1,22 @@
 import React from "react";
-// import { StepperProvider } from "../../components/Stepper/providers/StepperProvider";
-import Stepper from "../../components/Stepper/Stepper";
-import { AddPlayers, Screen2, Screen3, Screen4 } from "../../screens/components";
-
-function validate(text) {
-  return text.length >= 5;
-}
+import Stepper from "../../../components/Stepper/Stepper";
+import { AddPlayers, Screen2, Screen3, Screen4 } from "../../components";
 
 const steps = [
   {
-    title: "Step1",
+    title: "Add players",
     content: <AddPlayers />,
-    validate: validate,
-    description: "(description)",
+    validate: function () {
+      return true;
+    },
+    description: "(At this step you can add players)",
   },
   {
     title: "Step2",
     content: <Screen2 />,
-    validate: validate,
+    validate: function () {
+      return true;
+    },
   },
   {
     title: "Step3",

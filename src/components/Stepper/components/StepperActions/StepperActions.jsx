@@ -9,7 +9,9 @@ const StepperActions = (props) => {
       <Button disabled={prevDisabled} onClick={onPreviouse}>
         prev
       </Button>
-      <Button onClick={onNext}>{isFinishStep ? "finish" : "next"}</Button>
+      <Button className={"stepper-actions__button"} onClick={onNext}>
+        {isFinishStep ? "finish" : "next"}
+      </Button>
     </div>
   );
 };

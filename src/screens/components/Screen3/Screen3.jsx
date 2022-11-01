@@ -14,6 +14,7 @@ const Screen3 = () => {
   return (
     <div>
       <input value={state} type="text" onChange={handleChange} />
+
       <p>Step3</p>
     </div>
   );
