@@ -10,18 +10,20 @@ const AddPlayers = () => {
     usePlayers(activeStepData);
 
   updateTempStepData(players);
-
   return (
     <div className={"add-players"}>
-      {players.map((player) => (
-        <Player
-          key={player.id}
-          disabledRemoveButton={players.length <= 2}
-          removePlayer={removePlayer.bind(null, player.id)}
-          updatePlayerData={updatePlayerData}
-          playerDefault={player}
-        />
-      ))}
+      <div className="add-players__player-block">
+        {players.map((player, index) => (
+          <Player
+            key={player.id}
+            index={index}
+            disabledRemoveButton={players.length <= 2}
+            removePlayer={removePlayer.bind(null, player.id)}
+            updatePlayerData={updatePlayerData}
+            playerDefault={player}
+          />
+        ))}
+      </div>
 
       <Button disabled={players.length >= 10} onClick={addPlayer}>
         Add one more Player

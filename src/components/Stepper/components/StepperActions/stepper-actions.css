@@ -3,10 +3,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 0;
-  /* border: 1px solid red; */
   box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.05);
 }
+
 .stepper-actions__button {
   margin: 10px;
 }

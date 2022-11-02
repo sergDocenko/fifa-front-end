@@ -5,6 +5,7 @@ import "./player.css";
 
 const Player = (props) => {
   const {
+    index,
     playerDefault,
     updatePlayerData,
     removePlayer,
@@ -22,6 +23,7 @@ const Player = (props) => {
 
   return (
     <div className="player" onBlur={handleOnBlur}>
+      <span>{`${index + 1}.`}</span>
       <InputText
         value={playerDefault.name}
         onChange={updatePlayerName}

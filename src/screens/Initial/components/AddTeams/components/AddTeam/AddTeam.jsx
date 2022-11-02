@@ -18,18 +18,21 @@ const countriesOptions = countries.map((country) => ({
 const leaguesStructure = getPreparesLeagues(leagues);
 
 const teamsStructure = getPreparesTeams(teams);
-const defaultTeam = {
-  country: "ARGENTINA",
-  league: "LIGA PROFESIONAL DE FÚTBOL",
-  team: "Aldosivi",
-};
 
-const AddTeam = () => {
+const AddTeam = (props) => {
+  const {
+    defaultTeam,
+    updateTeamData,
+    disabledRemoveButton,
+    removeTeam,
+    index,
+  } = props;
   const [team, setTeam] = useState(defaultTeam);
 
   function getSelectedCountry(value) {
     const league = leaguesStructure[value][0].value;
     setTeam({
+      ...team,
       country: value,
       league: league,
       team: teamsStructure[value][league][0].value,
@@ -48,8 +51,12 @@ const AddTeam = () => {
     setTeam({ ...team, team: value });
   }
 
+  function handleOnBlur() {
+    updateTeamData(team);
+  }
   return (
-    <div className="add-team">
+    <div className="add-team" onBlur={handleOnBlur}>
+      <span>{`${index + 1}.`}</span>
       <Select
         options={countriesOptions}
         onChange={getSelectedCountry}
@@ -65,7 +72,9 @@ const AddTeam = () => {
         onChange={getSelectedTeam}
         value={team.team}
       />
-      <Button>Remove</Button>
+      <Button disabled={disabledRemoveButton} onClick={removeTeam}>
+        Remove
+      </Button>
     </div>
   );
 };

@@ -8,3 +8,9 @@
 .player__input-text {
   margin-right: 10px;
 }
+
+.player span {
+  min-width: 25px;
+  color: darkblue;
+  font-weight: 400;
+}

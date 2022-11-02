@@ -1,9 +1,21 @@
 .add-team {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 15px;
 }
 
 .add-team select {
-  margin-right: 10px;
+  width: 100%;
+  margin: 0 5px;
+  padding: 4px 10px;
+}
+
+.add-team button {
+  margin-left: 5px;
+}
+
+.add-team span {
+  min-width: 20px;
 }
