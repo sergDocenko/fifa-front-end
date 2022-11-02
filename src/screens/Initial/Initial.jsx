@@ -1,6 +1,6 @@
 import React from "react";
-import Stepper from "../../../components/Stepper/Stepper";
-import { AddPlayers, Screen2, Screen3, Screen4 } from "../../components";
+import Stepper from "../../components/Stepper/Stepper";
+import { AddPlayers, AddTeams, Screen3, Screen4 } from "./components";
 
 const steps = [
   {
@@ -12,8 +12,8 @@ const steps = [
     description: "(At this step you can add players)",
   },
   {
-    title: "Step2",
-    content: <Screen2 />,
+    title: "AddTeams",
+    content: <AddTeams />,
     validate: function () {
       return true;
     },

@@ -1,6 +1,6 @@
 import { useRef } from "react";
-import Button from "../../../../../components/Button/Button";
-import InputText from "../../../../../components/InputText/InputText";
+import Button from "../../../../../../components/Button/Button";
+import InputText from "../../../../../../components/InputText/InputText";
 import "./player.css";
 
 const Player = (props) => {

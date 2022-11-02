@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useStepperContext } from "../../../components/Stepper/hooks";
+import { useStepperContext } from "../../../../components/Stepper/hooks";
 
 const Screen3 = () => {
   const { updateTempStepData, activeStepData } = useStepperContext();

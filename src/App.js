@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import { Initial } from "./screens/components/Initial";
+import { Initial } from "./screens/Initial";
 
 function App() {
   return (

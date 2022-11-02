@@ -2,7 +2,7 @@
 .button_disabled {
   cursor: pointer;
   padding: 5px 20px;
-  font-size: 1rem;
+  font-size: 16px;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.37);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.312);

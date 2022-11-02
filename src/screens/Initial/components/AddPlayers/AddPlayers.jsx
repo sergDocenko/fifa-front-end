@@ -1,5 +1,5 @@
-import Button from "../../../components/Button/Button";
-import { useStepperContext } from "../../../components/Stepper/hooks";
+import Button from "../../../../components/Button/Button";
+import { useStepperContext } from "../../../../components/Stepper/hooks";
 import "./addPlayers.css";
 import Player from "./components/Player/Player";
 import usePlayers from "./hooks/usePlayers";

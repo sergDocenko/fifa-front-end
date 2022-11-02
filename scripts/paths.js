@@ -1,6 +1,6 @@
 const path = require("path");
 
-const DATA_DIRECTORY_NAME = "data";
+const DATA_DIRECTORY_NAME = "src/data";
 const PROJECT_DIRECTORY_NAME = "fifa-front-end";
 
 const PROJECT_ROOT_PATH = path.resolve(
