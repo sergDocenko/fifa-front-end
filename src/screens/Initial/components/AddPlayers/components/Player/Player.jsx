@@ -18,7 +18,7 @@ const Player = (props) => {
   }
 
   function handleOnBlur() {
-    updatePlayerData(player.current);
+    updatePlayerData(index, player.current);
   }
 
   return (

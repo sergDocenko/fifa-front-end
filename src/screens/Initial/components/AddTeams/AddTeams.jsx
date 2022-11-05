@@ -1,32 +1,53 @@
-import React from "react";
-import AddTeam from "./components/AddTeam/AddTeam";
 import Button from "../../../../components/Button/Button";
-import { useStepperContext } from "../../../../components/Stepper/hooks";
-import useTeams from "./hooks/useTeams";
+import Select from "../../../../components/Select/Select";
 import "./add-teams.css";
+import useTeams from "./hooks/useTeams";
 
 const AddTeams = () => {
-  const { updateTempStepData, activeStepData } = useStepperContext();
-  const { teams, updateTeamData, addTeam, removeTeam } =
-    useTeams(activeStepData);
+  const {
+    teams,
+    removeTeam,
+    addTeam: handleAddTeam,
+    getLeaguesOptions,
+    getTeamsOptions,
+    countriesOptions,
+    updateTempStepData,
+    updateFieldTeam,
+  } = useTeams();
 
   updateTempStepData(teams);
 
-  console.log(teams);
   return (
-    <div className="add-teams">
-      {teams.map((team, index) => (
-        <AddTeam
-          index={index}
-          defaultTeam={team}
-          key={team.id}
-          disabledRemoveButton={teams.length <= 2}
-          removeTeam={removeTeam.bind(null, team.id)}
-          updateTeamData={updateTeamData}
-        />
-      ))}
-
-      <Button disabled={teams.length >= 20} onClick={addTeam}>
+    <div>
+      <ul className="add-teams">
+        {teams.map((team, index) => (
+          <li className="add-teams__team" key={team.id}>
+            <span>{`${index + 1}.`}</span>
+            <Select
+              options={countriesOptions}
+              onChange={updateFieldTeam.bind(null, index, "country")}
+              value={team.country}
+            />
+            <Select
+              options={getLeaguesOptions(index)}
+              onChange={updateFieldTeam.bind(null, index, "league")}
+              value={team.league}
+            />
+            <Select
+              options={getTeamsOptions(index)}
+              onChange={updateFieldTeam.bind(null, index, "team")}
+              value={team.team}
+            />
+            <Button
+              disabled={teams.length <= 2}
+              onClick={removeTeam.bind(null, index)}
+            >
+              Remove
+            </Button>
+          </li>
+        ))}
+      </ul>
+      <Button disabled={teams.length >= 20} onClick={handleAddTeam}>
         Add team
       </Button>
     </div>

@@ -2,3 +2,24 @@
   width: 950px;
   /* max-height: 70vh; */
 }
+.add-teams__team {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.add-teams__team select {
+  width: 100%;
+  margin: 0 5px;
+  padding: 4px 10px;
+}
+
+.add-teams__team button {
+  margin-left: 5px;
+}
+
+.add-teams__team span {
+  min-width: 20px;
+}
